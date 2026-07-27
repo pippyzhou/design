@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="styles/tokens.css?v=20260628-1605" />
   <link rel="stylesheet" href="styles/base.css?v=20260714-0055" />
   <link rel="stylesheet" href="styles/components.css?v=20260726-2304" />
-  <link rel="stylesheet" href="styles/components-ai.css?v=20260726-2243" />
+  <link rel="stylesheet" href="styles/components-ai.css?v=20260727-2316" />
   <link rel="stylesheet" href="styles/pages.css?v=20260726-2238" />
 </head>
 <body class="page-project-detail case-page project-ai-page" data-protected>
@@ -107,7 +107,7 @@
         <h2 class="project-detail-section__title case-section__title">技术理解</h2>
         <p class="project-detail-section__text case-text">带着这些问题，我需要先了解深度研究是如何工作的。我们都知道现有的AI工作模式：模型接收问题 → 内部生成推理过程 → 输出最终答案。而DeepResearch在模型接收到问题后会先进行意图理解和问题解析，进行初步的信息搜集，生成初始的研究大纲（在这一步，有时会让用户参与进来，确保大纲符合预期），随后Agent根据大纲信息生成首轮研究任务，自主规划下一步 → 调用工具（如搜索引擎）获取新信息 → 分析并整合信息，生成任务小结 → 根据新获取的信息再次规划生成下一个任务 → ... 如此循环往复，直到执行完全部任务后，撰写研究报告，完成任务。</p>
         <figure class="project-detail-figure case-figure">
-          <img src="assets/figma-2055-739.png" alt="DeepResearch 任务链路拆解" /></figure>
+          <img src="assets/ai/project_ai_01.png" alt="DeepResearch 任务链路拆解" /></figure>
         <p class="project-detail-section__text case-text">在这个过程当中，AI会生成和获取海量的信息，在展示策略上，我们基于用户价值与体验效率的双重考量，逐项确定了以下方案：</p>
         <div class="project-detail-card">
           <h3 class="project-detail-card__title case-card__title">核心展示字段（提升感知与掌控感）</h3>
@@ -132,7 +132,7 @@
         </div>
         <p class="project-detail-section__text case-text">基于以上研究，我们推导并定义了适合微信生态的 DeepResearch 模型：</p>
         <figure class="project-detail-figure project-detail-figure--dark case-figure case-figure--dark">
-          <img src="assets/figma-2055-773.png" alt="微信生态下 DeepResearch 信息架构" /></figure>
+          <img src="assets/ai/project_ai_02.png" alt="微信生态下 DeepResearch 信息架构" /></figure>
       </div>
     </section>
 
@@ -143,61 +143,61 @@
 
         <h3 class="project-detail-subtitle case-subtitle">框架设计</h3>
         <p class="project-detail-section__text case-text">在框架设计上，我尝试了多版方案。在项目初期我就发现：传统的“线性流式打字”布局并不适配深度研究。因为深度研究的任务、行动和结论信息量都很大，线性打字的结构会导致用户需要消化巨量的文字信息，且当屏幕被长文本填满时，<highlight>用户极易丧失对研究进程的感知</highlight>，无法判断当前处于全局任务的哪一阶段。</p>
-        <figure class="project-detail-figure case-figure"><video src="assets/project_ai_03.mp4" autoplay loop muted playsinline controls aria-label="传统的线性流式打字输出"></video></figure>
+        <figure class="project-detail-figure case-figure"><video src="assets/ai/project_ai_03.mp4" autoplay loop muted playsinline controls aria-label="传统的线性流式打字输出"></video></figure>
         <p class="project-detail-section__text case-text">简单一点的解决方式是，<highlight>对阶段内容进行折叠</highlight>，这样可以保证研究阶段架构是稳定可见的，用户不会迷失当前研究阶段，但这样做带来的另一个坏处是，由于深度研究的研究时间长，该结构下内容展示区小，用户需要面对几乎毫无变动的页面等上十几分钟，这无疑是灾难性的体验。</p>
-        <figure class="project-detail-figure case-figure"><img src="assets/project_ai_4.png" alt="线性框架+折叠内容" /></figure>
+        <figure class="project-detail-figure case-figure"><img src="assets/ai/project_ai_04.png" alt="线性框架+折叠内容" /></figure>
         <p class="project-detail-section__text case-text">为兼顾充足的内容展示区域与研究框架的可见性，我们在第三次尝试中引入了置顶tab：</p>
-        <figure class="project-detail-figure case-figure"><video src="assets/project_ai_05.mp4" autoplay loop muted playsinline controls aria-label="置顶tab"></video></figure>
+        <figure class="project-detail-figure case-figure"><video src="assets/ai/project_ai_05.mp4" autoplay loop muted playsinline controls aria-label="置顶tab"></video></figure>
         <p class="project-detail-section__text case-text">但这一设计又引发了新的问题：一是步骤<highlight>重复导致的信息冗余</highlight>，二是横向步骤切换与纵向内容滑动之间存在<highlight>交互冲突</highlight>。</p>
         <p class="project-detail-section__text case-text">于是，我们将<highlight>步骤流程由横向改为纵向</highlight>，与内容流中的原有步骤整合，形成了上下堆叠的抽屉式交互。这一设计同时达成了三个目标：信息简化、大纲露出、以及为研究内容提供充足的展示空间。</p>
-        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><video src="assets/project_ai_06.mp4" autoplay loop muted playsinline controls aria-label="抽屉式框架定稿"></video></figure>
+        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><video src="assets/ai/project_ai_06.mp4" autoplay loop muted playsinline controls aria-label="抽屉式框架定稿"></video></figure>
         <p class="project-detail-section__text case-text">为什么我这么强调研究框架步骤的露出？因为微信的使用场景相比垂类AI产品是更丰富的。这样的设计，可以：</p>
         <ul class="project-detail-list case-list">
           <li>让第一次使用AI深度研究的用户一眼就能了解到深度研究的关键步骤，知道AI是如何工作的；</li>
           <li>从搜索历史回溯的用户，进入后马上得定位到当前的研究进度；</li>
           <li>让被分享的用户进入AI搜索研究后，既了解深度研究如何工作，又立马获得研究报告；</li>
         </ul>
-        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><img src="assets/figma-2055-813.png" alt="框架设计长图" /></figure>
+        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><img src="assets/ai/project_ai_07.png" alt="框架设计长图" /></figure>
 
         <h3 class="project-detail-subtitle case-subtitle">过程设计</h3>
         <p class="project-detail-section__text case-text">如前所述，深度研究的<highlight>研究时长是其他AI模型的10倍</highlight>，约10-15分钟，我们需要寻找合适的方案将漫长的等待转化为<highlight>有进度、有期待的观察过程</highlight>。</p>
         <h4 class="project-detail-kicker case-kicker">动画</h4>
         <p class="project-detail-section__text case-text">第一版过程动画设计完全模拟人类行为，表现为AI根据关键词搜索出结果后点击进入阅读再退回搜索结果再点击其他文章进入阅读，如此循环。</p>
-        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><video src="assets/project_ai_08.mp4" autoplay loop muted playsinline controls aria-label="过程动画方案首版"></video></figure>
+        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><video src="assets/ai/project_ai_08.mp4" autoplay loop muted playsinline controls aria-label="过程动画方案首版"></video></figure>
         <p class="project-detail-section__text case-text">这版动画虽然与人类行为很贴近，用户很容易明白AI在做什么，但与AI真实行为脱节，且<highlight>有许多无效的重复动作</highlight>；</p>
         <p class="project-detail-section__text case-text">于是在第二版方案上，我做了"逻辑对齐"，按照AI真实行为，把动画调整为连续搜索再连续阅读：</p>
-        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><video src="assets/project_ai_09.mp4" autoplay loop muted playsinline controls aria-label="过程动画方案A"></video></figure>
+        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><video src="assets/ai/project_ai_09.mp4" autoplay loop muted playsinline controls aria-label="过程动画方案A"></video></figure>
         <p class="project-detail-section__text case-text">但这样的动画仍然给人“AI很笨”的错觉，在内部可用性测试中，我们频繁收到“感觉AI很慢，不是很智能”的反馈。通过更进一步的用户分析，我们猜测原因在于用户<highlight>对 AI 的心智模型是“超人类的高效”，而模拟人类“逐篇阅读”的行为模式，在感官上显得笨重且低效</highlight>。为了在技术效率与用户感知之间找到平衡，我将AI运行过程中的“高价值信息节点”（如，搜索特定关键词、找到并分析核心文章）设计为由下而上渐显的视觉焦点，而将<highlight>具体的文章处理过程以高速打字流的形式略过</highlight>。</p>
-        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><video src="assets/project_ai_10.mp4" autoplay loop muted playsinline controls aria-label="过程动画方案B"></video></figure>
+        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><video src="assets/ai/project_ai_10.mp4" autoplay loop muted playsinline controls aria-label="过程动画方案B"></video></figure>
         <p class="project-detail-section__text case-text">在关键信息节点上采用模拟人类行为的图形化动画，保证易懂，对低价值信息保留机器语言的快速打字效果，<highlight>满足用户对“AI高效”的心理预期</highlight>。这种“快慢结合”的策略，既保证了过程的透明度，又体现了智能体的高效感。</p>
         <p class="project-detail-section__text case-text">也曾尝试在图形化的基础上表达“快”，基于项目周期和设计表达规范考量未能最终实现。</p>
-        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><video src="assets/project_ai_11.mp4" autoplay loop muted playsinline controls aria-label="过程动画方案B"></video></figure>
+        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><video src="assets/ai/project_ai_11.mp4" autoplay loop muted playsinline controls aria-label="过程动画方案B"></video></figure>
         
         <h4 class="project-detail-kicker case-kicker" style="margin-top: 32px;"> 权衡：研究过程中是否以打字动画输出任务小结</h4>
         <p class="project-detail-section__text case-text">输出小结会消耗额外的时间——模型需要归纳、提炼、组织本轮信息，再逐字呈现。每一次小结，都可能将最终报告的交付推迟几十秒或更久。而不输出小结，直接推进到下一任务或最终报告，无疑能让用户以更快的速度拿到报告。</p>
         <p class="project-detail-section__text case-text">初期，我们选择了效率优先，不输出小结。但在实际体验中我们发现：在长达十几分钟的研究过程中，小结所占用的时间几乎可以忽略不计；相反，它所提供的<highlight>阶段性总结，却能将漫长的过程自然地“分块”——每个小结都是一个认知的断点，让用户得以循环经历「期待→观察→获得→休息」的节奏</highlight>，将焦虑的等待转化为有获得感的进程。</p>
-        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><video src="assets/project_ai_12.mp4" autoplay loop muted playsinline controls aria-label="过程动画方案B"></video></figure>
+        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><video src="assets/ai/project_ai_12.mp4" autoplay loop muted playsinline controls aria-label="过程动画方案B"></video></figure>
         
         <p class="project-detail-section__text case-text">于是，我们重新将任务小结纳入设计方案。</p>
 
         <h3 class="project-detail-subtitle case-subtitle">报告设计</h3>
         <p class="project-detail-section__text case-text">我们在报告的引用来源、图表设计、行距字距等细节上做了诸多优化，以提升报告的专业感与阅读体验，此处不再展开。</p>
-        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><img src="assets/figma-2055-841.png" alt="报告设计首版" /></figure>
+        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><img src="assets/ai/project_ai_13.png" alt="报告设计首版" /></figure>
         <p class="project-detail-section__text case-text">接下来，我将重点阐述<highlight>报告的撰写过程与最终呈现</highlight>。与研究过程类似，报告因内容量大，AI在撰写时同样需要用户等待较长时间。同时，我们认为在开始长时间阅读之前，让用户对报告内容建立基本认知，是保持阅读耐心的关键。基于这一判断，我们果断放弃了各种进度条加载方案。</p>
-        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><img src="assets/figma-2055-845.png" alt="报告入口设计" /></figure>
+        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><img src="assets/ai/project_ai_14.png" alt="报告入口设计" /></figure>
         <p class="project-detail-section__text case-text">第一版方案设想是：在AI撰写报告的过程中，于报告入口外层同步以打字动画逐行输出报告的大标题框架，标题下方展示骨架屏加载状态。待报告全部撰写完毕后，再呈现完整内容并支持点击查看。</p>
         <p class="project-detail-section__text case-text">这一方案虽可行，但在报告内容的预览上仍不够直观，且容易给用户带来错误预期——例如：误以为窗口可滑动，或以为此处即可查看完整报告，而实际并非如此。</p>
         <p class="project-detail-section__text case-text">在优化版方案中，我们让AI主动生成一段不超过200字的报告摘要，在报告生成阶段与标题一同以打字动画呈现。相较于段落标题，<highlight>摘要能更直观地帮助用户预判报告内容</highlight>。当用户对报告内容有了基本了解后，再点击进入全文，便<highlight>不会因突如其来的巨大信息量而产生阅读压力</highlight>。</p>
-        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><img src="assets/figma-2055-849.png" alt="报告设计优化版" /></figure>
+        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><img src="assets/ai/project_ai_15.png" alt="报告设计优化版" /></figure>
 
         <h3 class="project-detail-subtitle case-subtitle">微信场景适配</h3>
         <p class="project-detail-section__text case-text">如前所述，用户在微信中使用AI的场景，与使用独立AI产品时截然不同。微信本质上是聊天与生活的工具，<highlight>用户仅在社交间隙顺手咨询AI</highlight>。若强制其等待长达十几分钟的深度研究，无疑会打断其社交进程，造成极其糟糕的体验。</p>
         <p class="project-detail-section__text case-text">因此，我们围绕「中途退出与找回」这一核心场景，做了更贴合微信生态的设计。</p>
         <h4 class="project-detail-kicker case-kicker">中途退出设计</h4>
         <p class="project-detail-section__text case-text">我们在问答之初就提示了用户“研究预计耗时较长，离开页面仍会继续研究”。且在用户首次退出时，展示教育半屏，告知用户可在问答历史中找回正在进行的AI研究。同时，在问答历史中，标志当前深度研究的状态——“回答中”或“研究报告”（表示研究报告已生成）。</p>
-        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><img src="assets/figma-2055-858.png" alt="问答历史状态找回" /></figure>
+        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><img src="assets/ai/project_ai_16.png" alt="问答历史状态找回" /></figure>
         <p class="project-detail-section__text case-text">当然，上述的提示形式只能帮助用户在搜索的场景下回到深度研究。我们还需考虑在整体微信聊天背景下，如何帮助用户获取研究进度，找回研究报告。我们考虑在退出深度研究时，主动拉起全局浮窗，在浮窗中实时透传当前研究阶段，并在报告撰写完成时通过独特的视觉动效提示。确保用户即便沉浸在聊天中，也能随时掌控研究进度并一键切回。</p>     
-        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><video src="assets/projest_ai_last1.mp4" autoplay loop muted playsinline controls aria-label="全局浮窗进度透传"></video></figure>
+        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><video src="assets/ai/projest_ai_17.mp4" autoplay loop muted playsinline controls aria-label="全局浮窗进度透传"></video></figure>
       </div>
     </section>
 
