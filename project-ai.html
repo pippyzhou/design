@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>当AI成为研究助理 · Polly</title>
+  <link rel="stylesheet" href="styles/tokens.css?v=20260628-1605" />
+  <link rel="stylesheet" href="styles/base.css?v=20260714-0055" />
+  <link rel="stylesheet" href="styles/components.css?v=20260726-2304" />
+  <link rel="stylesheet" href="styles/components-ai.css?v=20260726-2243" />
+  <link rel="stylesheet" href="styles/pages.css?v=20260726-2238" />
+</head>
+<body class="page-project-detail case-page project-ai-page" data-protected>
+
+  <header class="site-header has-condensed">
+    <div class="container">
+      <nav class="navbar navbar__inner">
+        <ul class="nav-list">
+          <li><a class="nav-link nav-home" href="index.html">首页</a></li>
+          <li><a class="nav-link" href="experience.html">经历</a></li>
+          <li><a class="nav-link is-active" href="projects.html">项目</a></li>
+          <li><a class="nav-link" href="#">关于我</a></li>
+        </ul>
+        <!-- 吸顶精简导航：仅下滑时出现（样式见 components.css .nav-condensed） -->
+        <div class="nav-condensed">
+          <div class="nav-menu" tabindex="0" role="button" aria-haspopup="true" aria-label="打开菜单">
+            <img class="nav-menu__icon" src="assets/menu.png" alt="菜单" />
+            <img class="nav-menu__home" src="assets/home.png" alt="Polly" />
+            <ul class="nav-menu__dropdown">
+              <li><a href="index.html">首页</a></li>
+              <li><a href="experience.html">经历</a></li>
+              <li><a href="projects.html">项目</a></li>
+              <li><a href="#">关于我</a></li>
+            </ul>
+          </div>
+          <span class="nav-condensed__title">当AI成为研究助理：在国民社交应用中构建透明、可控且值得信赖的Agent UX</span>
+        </div>
+        <span class="lang-switch">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.94839 9.6H7.92639C7.8418 10.3972 7.79974 11.1983 7.80039 12C7.80039 12.828 7.84359 13.632 7.92639 14.4H3.94839C3.71693 13.621 3.59971 12.8126 3.60039 12C3.60039 11.166 3.72159 10.3608 3.94839 9.6ZM4.40919 8.4C4.91949 7.32656 5.65122 6.37329 6.55628 5.60287C7.46134 4.83245 8.51923 4.26233 9.66039 3.93C9.35469 4.39646 9.0985 4.89356 8.89599 5.4132C8.55399 6.2724 8.28039 7.2852 8.09079 8.4H4.40919ZM12.0004 2.4C9.45431 2.4 7.01252 3.41143 5.21217 5.21178C3.41182 7.01213 2.40039 9.45392 2.40039 12C2.40039 14.5461 3.41182 16.9879 5.21217 18.7882C7.01252 20.5886 9.45431 21.6 12.0004 21.6C14.5465 21.6 16.9883 20.5886 18.7886 18.7882C20.589 16.9879 21.6004 14.5461 21.6004 12C21.6004 9.45392 20.589 7.01213 18.7886 5.21178C16.9883 3.41143 14.5465 2.4 12.0004 2.4ZM12.0004 3.6C12.2788 3.6 12.6052 3.7392 12.9664 4.1196C13.3264 4.5012 13.6804 5.0868 13.9888 5.8596C14.2768 6.5796 14.5168 7.44 14.6908 8.4H9.30879C9.48279 7.44 9.72279 6.5808 10.012 5.8584C10.3204 5.0868 10.6744 4.5024 11.0356 4.1184C11.3956 3.7392 11.722 3.6 12.0004 3.6ZM15.91 8.4C15.7468 7.37886 15.4765 6.37774 15.1036 5.4132C14.9011 4.89355 14.6449 4.39646 14.3392 3.93C15.4806 4.26218 16.5387 4.83223 17.444 5.60266C18.3492 6.37308 19.0812 7.32643 19.5916 8.4H15.91ZM14.8672 9.6C14.9536 10.3596 15.0004 11.1648 15.0004 12C15.0004 12.8352 14.9536 13.6404 14.8672 14.4H9.13359C9.04402 13.6031 8.99955 12.8019 9.00039 12C9.00039 11.1648 9.04719 10.3596 9.13359 9.6H14.8672ZM16.0744 14.4C16.1572 13.632 16.2004 12.828 16.2004 12C16.2004 11.172 16.1572 10.368 16.0744 9.6H20.0524C20.2792 10.3608 20.4004 11.166 20.4004 12C20.4004 12.834 20.2792 13.6392 20.0524 14.4H16.0744ZM14.692 15.6C14.518 16.56 14.278 17.4192 13.9888 18.1416C13.6804 18.9132 13.3264 19.4976 12.9664 19.8816C12.6064 20.2608 12.2788 20.4 12.0004 20.4C11.722 20.4 11.3956 20.2608 11.0356 19.8804C10.6744 19.4988 10.3204 18.9132 10.012 18.1404C9.72399 17.4204 9.48399 16.56 9.30879 15.6H14.692ZM14.3392 20.07C14.6272 19.6416 14.8816 19.14 15.1036 18.5868C15.4468 17.7276 15.7216 16.7148 15.91 15.6H19.5916C19.0811 16.6735 18.3492 17.6268 17.4439 18.3973C16.5386 19.1677 15.4805 19.7378 14.3392 20.07ZM9.66159 20.07C8.52021 19.7378 7.46209 19.1678 6.55681 18.3973C5.65154 17.6269 4.91961 16.6736 4.40919 15.6H8.09079C8.27919 16.716 8.55399 17.7276 8.89719 18.5868C9.11919 19.1388 9.37359 19.6416 9.66159 20.07Z" fill="#333333"/></svg>
+          中文 <img class="lang-switch__arrow" src="assets/transfer.png" alt="展开" />
+        </span>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="project-detail-hero case-hero">
+      <div class="container">
+        
+        <h1 class="project-detail-hero__title case-title">当AI成为研究助理：在国民社交应用中构建透明、可控且值得信赖的Agent UX</h1>
+        <div class="meta-row project-detail-meta case-meta">
+          <span class="meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7v5l8 8 8-8-8-8H7a4 4 0 0 0-4 4z"/><circle cx="7.5" cy="7.5" r="1"/></svg>AI；动效设计</span>
+          <span class="meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>2025年12月</span>
+          <span class="meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>约12分钟阅读</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section case-section case-intro">
+      <div class="container">
+        <h2 class="project-detail-section__title case-section__title">背景与目标</h2>
+        <p class="project-detail-section__text case-text">DeepResearch是今年Claude、GPT、Gemini发布的智能体，<highlight>通过规划→搜索→推理→报告，帮助用户研究复杂问题形成专业报告。利用十几分钟创建一份达到研究分析师水平的综合报告或专业文档</highlight>，替代原有人类数小时的研究工作。</p>
+        <p class="project-detail-section__text case-text">微信是中国国民级社交app，拥有13亿日活用户，<highlight>覆盖几乎所有年龄段和社会阶层</highlight>，从一线城市到下沉市场全面渗透。</p>
+        <p class="project-detail-section__text case-text">我们希望<span class="case-text--medium">在微信中引入DeepResearch能力，以帮助普通民众解决一些极其繁重的生活决策压力</span>，比如：</p>
+        <ul class="project-detail-quote-list case-list case-intro-list">
+          <li>老年人：“这种降压药和那种有什么区别？长期吃有什么副作用？”</li>
+          <li>三线城市父母：“想给孩子选个热门专业，这个专业以后就业到底怎么样？”</li>
+          <li>小生意人：“现在想开个奶茶店，加盟费和物料成本到底有多少坑？”</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="project-detail-section case-section">
+      <div class="container">
+        <h2 class="project-detail-section__title case-section__title">挑战</h2>
+        <p class="project-detail-section__text case-text">我的挑战主要来自于以下两方面：</p>
+
+        <div class="project-detail-card case-challenge">
+          <h3 class="project-detail-card__title case-card__title case-challenge__title"><span class="case-challenge__index">1.</span><span>技术特性的不同（深度研究 vs. 常规 AI 模型）</span></h3>
+          <div class="case-challenge__row">
+            <span class="case-challenge__dot" aria-hidden="true"></span>
+            <p class="project-detail-section__text case-text"><strong>过程体验的黑盒化</strong>：常规 AI 模型的生成通常在 1 分钟以内，用户无需付出太多等待成本；而深度研究的任务链路长达 10-15 分钟。在这种超长延迟下，如果缺乏透明度，用户会产生严重的焦虑和失控感。</p>
+          </div>
+          <div class="case-challenge__row">
+            <span class="case-challenge__dot" aria-hidden="true"></span>
+            <p class="project-detail-section__text case-text"><strong>结果交付的重负荷</strong>：常规 AI 输出的是易于快速消化的短文本；而深度研究交付的则是长篇幅的专业分析报告，这直接拉高了非专业用户的阅读门槛与认知负荷。</p>
+          </div>
+        </div>
+
+        <div class="project-detail-card case-challenge">
+          <h3 class="project-detail-card__title case-card__title case-challenge__title"><span class="case-challenge__index">2.</span><span>生态的不同（微信生态 vs. 垂直 AI 产品）</span></h3>
+          <div class="case-challenge__row">
+            <span class="case-challenge__dot" aria-hidden="true"></span>
+            <p class="project-detail-section__text case-text"><strong>用户心智的落差</strong>：垂直的 AI 产品往往服务于“高学历、年轻化”的早期极客，他们对复杂交互有较高的容错率；而微信面对的是全年龄段的国民级下沉市场，这部分人群对交互的直觉性要求极高，认知门槛较低。</p>
+          </div>
+          <div class="case-challenge__row">
+            <span class="case-challenge__dot" aria-hidden="true"></span>
+            <p class="project-detail-section__text case-text"><strong>场景注意力的碎片化</strong>：独立的 AI 产品多是带着明确目标进入完成任务后再离开；而在微信中，用户的行为是“中断式”的。他们通常在社交和生活的间隙中发起提问，随时可能跳出。</p>
+          </div>
+        </div>
+        <p class="project-detail-section__text case-text">核心挑战在于：如何将一段漫长、复杂、不可见的后台过程，转化为一次对微信用户而言透明、可控、可信的友好体验？</p>
+      </div>
+    </section>
+
+    <section class="project-detail-section case-section case-tech">
+      <div class="container">
+        <h2 class="project-detail-section__title case-section__title">技术理解</h2>
+        <p class="project-detail-section__text case-text">带着这些问题，我需要先了解深度研究是如何工作的。我们都知道现有的AI工作模式：模型接收问题 → 内部生成推理过程 → 输出最终答案。而DeepResearch在模型接收到问题后会先进行意图理解和问题解析，进行初步的信息搜集，生成初始的研究大纲（在这一步，有时会让用户参与进来，确保大纲符合预期），随后Agent根据大纲信息生成首轮研究任务，自主规划下一步 → 调用工具（如搜索引擎）获取新信息 → 分析并整合信息，生成任务小结 → 根据新获取的信息再次规划生成下一个任务 → ... 如此循环往复，直到执行完全部任务后，撰写研究报告，完成任务。</p>
+        <figure class="project-detail-figure case-figure">
+          <img src="assets/figma-2055-739.png" alt="DeepResearch 任务链路拆解" /></figure>
+        <p class="project-detail-section__text case-text">在这个过程当中，AI会生成和获取海量的信息，在展示策略上，我们基于用户价值与体验效率的双重考量，逐项确定了以下方案：</p>
+        <div class="project-detail-card">
+          <h3 class="project-detail-card__title case-card__title">核心展示字段（提升感知与掌控感）</h3>
+          <ul class="project-detail-list case-list case-core-list">
+            <li><span class="case-core-list__text"><strong>初始大纲</strong>：展示。作为研究的「目录」，帮助用户建立整体预期，弥补无法参与规划的交互局限。</span></li>
+            <li><span class="case-core-list__text"><strong>任务名</strong>：展示。让用户清晰掌握当前所处的调研阶段。</span></li>
+            <li><span class="case-core-list__text"><strong>搜索关键词</strong>：展示。展现系统的搜索轨迹，体现研究过程的「深度」与透明度。</span></li>
+            <li><span class="case-core-list__text"><strong>分析的文章/网址</strong>：展示。通过标题+来源的形式呈现信息来源，一方面证明研究的「广度」，另一方面用户可根据原文进行交叉验证。</span></li>
+          </ul>
+        </div>
+        <div class="project-detail-card">
+          <h3 class="project-detail-card__title case-card__title">效率优化字段（平衡信息量与阅读负担）</h3>
+          <ul class="project-detail-list case-list case-core-list">
+            <li><span class="case-core-list__text"><strong>思考过程/碎碎念</strong>：不展示。该部分内容价值较低且字数冗长，隐藏后可减少用户阅读干扰，突出关键信息。</span></li>
+          </ul>
+        </div>
+        <div class="project-detail-card">
+          <h3 class="project-detail-card__title case-card__title">需进一步验证的字段（权衡速度与阶段性反馈）</h3>
+          <ul class="project-detail-list case-list case-core-list">
+            <li><span class="case-core-list__text"><strong>任务小结</strong>：展示小结能缓解长时间等待的焦虑，但输出小结会增加耗时，延缓进入最终报告的进程。需在速度与体验之间找到最佳平衡点。</span></li>
+          </ul>
+        </div>
+        <p class="project-detail-section__text case-text">基于以上研究，我们推导并定义了适合微信生态的 DeepResearch 模型：</p>
+        <figure class="project-detail-figure project-detail-figure--dark case-figure case-figure--dark">
+          <img src="assets/figma-2055-773.png" alt="微信生态下 DeepResearch 信息架构" /></figure>
+      </div>
+    </section>
+
+    <section class="project-detail-section case-section">
+      <div class="container">
+        <h2 class="project-detail-section__title case-section__title">关键设计决策</h2>
+        <p class="project-detail-section__text case-text">基于对技术的理解，针对上述的挑战，我们从<highlight>产品框架、过程动画、报告设计、微信场景适配</highlight>四个方面，给出了我们的解法。</p>
+
+        <h3 class="project-detail-subtitle case-subtitle">框架设计</h3>
+        <p class="project-detail-section__text case-text">在框架设计上，我尝试了多版方案。在项目初期我就发现：传统的“线性流式打字”布局并不适配深度研究。因为深度研究的任务、行动和结论信息量都很大，线性打字的结构会导致用户需要消化巨量的文字信息，且当屏幕被长文本填满时，<highlight>用户极易丧失对研究进程的感知</highlight>，无法判断当前处于全局任务的哪一阶段。</p>
+        <figure class="project-detail-figure case-figure"><video src="assets/project_ai_03.mp4" autoplay loop muted playsinline controls aria-label="传统的线性流式打字输出"></video></figure>
+        <p class="project-detail-section__text case-text">简单一点的解决方式是，<highlight>对阶段内容进行折叠</highlight>，这样可以保证研究阶段架构是稳定可见的，用户不会迷失当前研究阶段，但这样做带来的另一个坏处是，由于深度研究的研究时间长，该结构下内容展示区小，用户需要面对几乎毫无变动的页面等上十几分钟，这无疑是灾难性的体验。</p>
+        <figure class="project-detail-figure case-figure"><img src="assets/project_ai_4.png" alt="线性框架+折叠内容" /></figure>
+        <p class="project-detail-section__text case-text">为兼顾充足的内容展示区域与研究框架的可见性，我们在第三次尝试中引入了置顶tab：</p>
+        <figure class="project-detail-figure case-figure"><video src="assets/project_ai_05.mp4" autoplay loop muted playsinline controls aria-label="置顶tab"></video></figure>
+        <p class="project-detail-section__text case-text">但这一设计又引发了新的问题：一是步骤<highlight>重复导致的信息冗余</highlight>，二是横向步骤切换与纵向内容滑动之间存在<highlight>交互冲突</highlight>。</p>
+        <p class="project-detail-section__text case-text">于是，我们将<highlight>步骤流程由横向改为纵向</highlight>，与内容流中的原有步骤整合，形成了上下堆叠的抽屉式交互。这一设计同时达成了三个目标：信息简化、大纲露出、以及为研究内容提供充足的展示空间。</p>
+        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><video src="assets/project_ai_06.mp4" autoplay loop muted playsinline controls aria-label="抽屉式框架定稿"></video></figure>
+        <p class="project-detail-section__text case-text">为什么我这么强调研究框架步骤的露出？因为微信的使用场景相比垂类AI产品是更丰富的。这样的设计，可以：</p>
+        <ul class="project-detail-list case-list">
+          <li>让第一次使用AI深度研究的用户一眼就能了解到深度研究的关键步骤，知道AI是如何工作的；</li>
+          <li>从搜索历史回溯的用户，进入后马上得定位到当前的研究进度；</li>
+          <li>让被分享的用户进入AI搜索研究后，既了解深度研究如何工作，又立马获得研究报告；</li>
+        </ul>
+        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><img src="assets/figma-2055-813.png" alt="框架设计长图" /></figure>
+
+        <h3 class="project-detail-subtitle case-subtitle">过程设计</h3>
+        <p class="project-detail-section__text case-text">如前所述，深度研究的<highlight>研究时长是其他AI模型的10倍</highlight>，约10-15分钟，我们需要寻找合适的方案将漫长的等待转化为<highlight>有进度、有期待的观察过程</highlight>。</p>
+        <h4 class="project-detail-kicker case-kicker">动画</h4>
+        <p class="project-detail-section__text case-text">第一版过程动画设计完全模拟人类行为，表现为AI根据关键词搜索出结果后点击进入阅读再退回搜索结果再点击其他文章进入阅读，如此循环。</p>
+        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><video src="assets/project_ai_08.mp4" autoplay loop muted playsinline controls aria-label="过程动画方案首版"></video></figure>
+        <p class="project-detail-section__text case-text">这版动画虽然与人类行为很贴近，用户很容易明白AI在做什么，但与AI真实行为脱节，且<highlight>有许多无效的重复动作</highlight>；</p>
+        <p class="project-detail-section__text case-text">于是在第二版方案上，我做了"逻辑对齐"，按照AI真实行为，把动画调整为连续搜索再连续阅读：</p>
+        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><video src="assets/project_ai_09.mp4" autoplay loop muted playsinline controls aria-label="过程动画方案A"></video></figure>
+        <p class="project-detail-section__text case-text">但这样的动画仍然给人“AI很笨”的错觉，在内部可用性测试中，我们频繁收到“感觉AI很慢，不是很智能”的反馈。通过更进一步的用户分析，我们猜测原因在于用户<highlight>对 AI 的心智模型是“超人类的高效”，而模拟人类“逐篇阅读”的行为模式，在感官上显得笨重且低效</highlight>。为了在技术效率与用户感知之间找到平衡，我将AI运行过程中的“高价值信息节点”（如，搜索特定关键词、找到并分析核心文章）设计为由下而上渐显的视觉焦点，而将<highlight>具体的文章处理过程以高速打字流的形式略过</highlight>。</p>
+        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><video src="assets/project_ai_10.mp4" autoplay loop muted playsinline controls aria-label="过程动画方案B"></video></figure>
+        <p class="project-detail-section__text case-text">在关键信息节点上采用模拟人类行为的图形化动画，保证易懂，对低价值信息保留机器语言的快速打字效果，<highlight>满足用户对“AI高效”的心理预期</highlight>。这种“快慢结合”的策略，既保证了过程的透明度，又体现了智能体的高效感。</p>
+        <p class="project-detail-section__text case-text">也曾尝试在图形化的基础上表达“快”，基于项目周期和设计表达规范考量未能最终实现。</p>
+        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><video src="assets/project_ai_11.mp4" autoplay loop muted playsinline controls aria-label="过程动画方案B"></video></figure>
+        
+        <h4 class="project-detail-kicker case-kicker" style="margin-top: 32px;"> 权衡：研究过程中是否以打字动画输出任务小结</h4>
+        <p class="project-detail-section__text case-text">输出小结会消耗额外的时间——模型需要归纳、提炼、组织本轮信息，再逐字呈现。每一次小结，都可能将最终报告的交付推迟几十秒或更久。而不输出小结，直接推进到下一任务或最终报告，无疑能让用户以更快的速度拿到报告。</p>
+        <p class="project-detail-section__text case-text">初期，我们选择了效率优先，不输出小结。但在实际体验中我们发现：在长达十几分钟的研究过程中，小结所占用的时间几乎可以忽略不计；相反，它所提供的<highlight>阶段性总结，却能将漫长的过程自然地“分块”——每个小结都是一个认知的断点，让用户得以循环经历「期待→观察→获得→休息」的节奏</highlight>，将焦虑的等待转化为有获得感的进程。</p>
+        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><video src="assets/project_ai_12.mp4" autoplay loop muted playsinline controls aria-label="过程动画方案B"></video></figure>
+        
+        <p class="project-detail-section__text case-text">于是，我们重新将任务小结纳入设计方案。</p>
+
+        <h3 class="project-detail-subtitle case-subtitle">报告设计</h3>
+        <p class="project-detail-section__text case-text">我们在报告的引用来源、图表设计、行距字距等细节上做了诸多优化，以提升报告的专业感与阅读体验，此处不再展开。</p>
+        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><img src="assets/figma-2055-841.png" alt="报告设计首版" /></figure>
+        <p class="project-detail-section__text case-text">接下来，我将重点阐述<highlight>报告的撰写过程与最终呈现</highlight>。与研究过程类似，报告因内容量大，AI在撰写时同样需要用户等待较长时间。同时，我们认为在开始长时间阅读之前，让用户对报告内容建立基本认知，是保持阅读耐心的关键。基于这一判断，我们果断放弃了各种进度条加载方案。</p>
+        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><img src="assets/figma-2055-845.png" alt="报告入口设计" /></figure>
+        <p class="project-detail-section__text case-text">第一版方案设想是：在AI撰写报告的过程中，于报告入口外层同步以打字动画逐行输出报告的大标题框架，标题下方展示骨架屏加载状态。待报告全部撰写完毕后，再呈现完整内容并支持点击查看。</p>
+        <p class="project-detail-section__text case-text">这一方案虽可行，但在报告内容的预览上仍不够直观，且容易给用户带来错误预期——例如：误以为窗口可滑动，或以为此处即可查看完整报告，而实际并非如此。</p>
+        <p class="project-detail-section__text case-text">在优化版方案中，我们让AI主动生成一段不超过200字的报告摘要，在报告生成阶段与标题一同以打字动画呈现。相较于段落标题，<highlight>摘要能更直观地帮助用户预判报告内容</highlight>。当用户对报告内容有了基本了解后，再点击进入全文，便<highlight>不会因突如其来的巨大信息量而产生阅读压力</highlight>。</p>
+        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><img src="assets/figma-2055-849.png" alt="报告设计优化版" /></figure>
+
+        <h3 class="project-detail-subtitle case-subtitle">微信场景适配</h3>
+        <p class="project-detail-section__text case-text">如前所述，用户在微信中使用AI的场景，与使用独立AI产品时截然不同。微信本质上是聊天与生活的工具，<highlight>用户仅在社交间隙顺手咨询AI</highlight>。若强制其等待长达十几分钟的深度研究，无疑会打断其社交进程，造成极其糟糕的体验。</p>
+        <p class="project-detail-section__text case-text">因此，我们围绕「中途退出与找回」这一核心场景，做了更贴合微信生态的设计。</p>
+        <h4 class="project-detail-kicker case-kicker">中途退出设计</h4>
+        <p class="project-detail-section__text case-text">我们在问答之初就提示了用户“研究预计耗时较长，离开页面仍会继续研究”。且在用户首次退出时，展示教育半屏，告知用户可在问答历史中找回正在进行的AI研究。同时，在问答历史中，标志当前深度研究的状态——“回答中”或“研究报告”（表示研究报告已生成）。</p>
+        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><img src="assets/figma-2055-858.png" alt="问答历史状态找回" /></figure>
+        <p class="project-detail-section__text case-text">当然，上述的提示形式只能帮助用户在搜索的场景下回到深度研究。我们还需考虑在整体微信聊天背景下，如何帮助用户获取研究进度，找回研究报告。我们考虑在退出深度研究时，主动拉起全局浮窗，在浮窗中实时透传当前研究阶段，并在报告撰写完成时通过独特的视觉动效提示。确保用户即便沉浸在聊天中，也能随时掌控研究进度并一键切回。</p>     
+        <figure class="project-detail-figure project-detail-figure--tight case-figure case-figure--tight"><video src="assets/projest_ai_last1.mp4" autoplay loop muted playsinline controls aria-label="全局浮窗进度透传"></video></figure>
+      </div>
+    </section>
+
+    <section class="project-detail-section case-section case-summary">
+      <div class="container">
+        <h2 class="project-detail-section__title case-section__title">总结</h2>
+        <p class="project-detail-section__text case-text">回顾整个设计过程，我们面对的核心难题是：AI的「思考时间」从秒级跃迁到十几分钟级，产品的「使用场景」从专注切换为碎片。</p>
+        <div class="case-summary-block">
+          <p class="project-detail-section__text case-text">我们的解法，是将AI从一个「黑箱回答者」重塑为一个「可视化协作者」：</p>
+          <ul class="project-detail-list case-list case-summary-list">
+            <li>透明：让用户看见AI的“研究路径”，将漫长的等待转化为可观察的过程；</li>
+            <li>可控：通过抽屉式框架锚定研究阶段，配合全局浮窗实现随时进出、进度可控，让用户即使在聊天间隙也能安心离开、轻松回归；</li>
+            <li>可信：在报告生成阶段以摘要先行、渐进式展开的方式，让用户在点击阅读前就对内容建立预期，避免被海量信息淹没，从而真正愿意阅读并信任这份报告。</li>
+          </ul>
+        </div>
+        <p class="project-detail-section__text case-text">数据反馈也证明了这套解法的有效性：灰度期间（10月13日到10月19日），使用QV 上涨 28%，页面平均停留时间长达381秒，报告查看率从72.08%提升至 79.47%，报告分享率从34.55%上涨到40.96%。这不仅是数据的增长，更代表着我们通过设计，让每一位普通用户都能在微信里，平等且高效地享受到 AI 带来的决策助力。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <div class="contact">
+      <div>
+        <h3 class="contact__title">联系我</h3>
+        <p class="contact__subtitle">欢迎联系合作机会，或只是简单打个招呼～</p>
+      </div>
+      <div class="social">
+        <button class="social__icon" type="button" data-copy="be_aGoodZpp" data-toast="已复制微信号" aria-label="复制微信号">
+          <img src="assets/icon-wechat.png" alt="微信" />
+        </button>
+        <button class="social__icon" type="button" data-copy="245583214@qq.com" data-toast="已复制邮箱地址" aria-label="复制邮箱地址">
+          <img src="assets/icon-mail.png" alt="邮箱" />
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/app.js?v=20260719-2124"></script>
+</body>
+</html>

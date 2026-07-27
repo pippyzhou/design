@@ -1,0 +1,647 @@
+/* =========================================================
+   Case Study 组件样式 — project-ktv 专属
+   作用域：.project-ktv-page（与 project-ai/project-logistic 完全隔离）
+   关键可调项已抽成 CSS 变量，供可视化编辑器实时调节。
+   ========================================================= */
+
+.project-ktv-page {
+  /* ---------- 可视化编辑器可调变量 ---------- */
+  --lg-section-pad: 76px;          /* 段落上下内边距 */
+  --lg-title-size: 42px;           /* 一级标题字号 */
+  --lg-title-lh: 58.8px;           /* 一级标题行高 */
+  --lg-section-title-size: 36px;   /* 章节标题字号 */
+  --lg-section-title-lh: 50.4px;   /* 章节标题行高 */
+  --lg-subtitle-size: 28px;        /* h3 小节标题字号 */
+  --lg-subtitle-lh: 40.6px;        /* h3 小节标题行高 */
+  --lg-subtitle-mt: 24px;          /* h3 上间距 */
+  --lg-subtitle-mb: 24px;          /* h3 下间距 */
+  --lg-text-size: 20px;            /* 正文字号 */
+  --lg-text-lh: 38px;              /* 正文行高 */
+  --lg-text-color: #333333;        /* 正文颜色 */
+  --lg-kicker-stage-color: #777777;/* “当前阶段”小字颜色 */
+  --lg-kicker-stage-mt: 76px;      /* “当前阶段”上外边距 */
+  --lg-kicker-stage-pt: 76px;      /* “当前阶段”上内边距 */
+  --lg-stage-h3-mt: 12px;          /* 阶段块内 h3 上间距 */
+  --lg-stage-h3-mb: 20px;          /* 阶段块内 h3 下间距 */
+  --lg-stage-text-mt: 20px;        /* 阶段块内 h3 → 描述文字 间距 */
+  --lg-stage-text-mb: 24px;        /* 阶段块内 描述文字 → 首图 间距 */
+  --lg-result-mt: 40px;            /* 结果区 分割线上方间距（距上一块） */
+  --lg-result-pt: 40px;            /* 结果区 分割线 → 标题 间距 */
+  --lg-result-title-gap: 12px;     /* 结果区 标题 → 正文 间距 */
+  --lg-result-fig-gap: 20px;       /* 结果区 正文 → 图片 间距 */
+  --lg-divider-color: #E6ECF4;     /* 分割线颜色 */
+  --lg-divider-h: 1px;             /* 分割线粗细 */
+
+  letter-spacing: 0.02em;
+
+  .nav-link,
+  .lang-switch {
+    letter-spacing: 0;
+  }
+
+  /* ---------- Hero ---------- */
+  .case-hero {
+    padding-block: 60px 48px;
+  }
+  .case-crumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px;
+    line-height: 28px;
+    margin-bottom: 34px;
+  }
+  .case-crumb__muted { color: #CCCCCC; }
+  .case-crumb__current { color: #777777; }
+  .case-title {
+    max-width: 1280px;
+    font-size: var(--lg-title-size);
+    font-weight: var(--fw-semibold);
+    line-height: var(--lg-title-lh);
+    letter-spacing: 0;
+    color: #333333;
+    margin-bottom: 24px;
+  }
+  .case-meta {
+    gap: 28px;
+    color: #92A1B6;
+  }
+  .case-meta .meta-item {
+    font-size: 20px;
+    line-height: 28px;
+    gap: 8px;
+  }
+  .case-meta .meta-item svg {
+    width: 24px;
+    height: 24px;
+  }
+  .case-cover-wrap { padding-bottom: 72px; }
+  .case-cover { border-radius: 20px; overflow: hidden; }
+  .case-cover img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 1280 / 420;
+    object-fit: cover;
+  }
+
+  /* ---------- Section ---------- */
+  .case-section { padding-block: 72px; }
+
+  &.case-page .project-detail-section.case-section {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  &.case-page .project-detail-section.case-section > .container {
+    padding-top: var(--lg-section-pad);
+    padding-bottom: var(--lg-section-pad);
+  }
+  &.case-page .project-detail-section.case-section:first-of-type > .container {
+    padding-top: 72px;
+  }
+  &.case-page .project-detail-section.case-section:last-of-type > .container {
+    padding-bottom: 72px;
+  }
+
+  /* 段落之间的分割线：内容宽度居中、左右留白，不贯穿整页 */
+  &.case-page .project-detail-section.case-section + .project-detail-section.case-section > .container {
+    position: relative;
+  }
+  &.case-page .project-detail-section.case-section + .project-detail-section.case-section > .container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: var(--page-pad-x);
+    right: var(--page-pad-x);
+    height: var(--lg-divider-h);
+    background: var(--lg-divider-color);
+  }
+
+  .case-section--soft { background: #FAFAFA; }
+  .case-section__title {
+    font-size: var(--lg-section-title-size);
+    font-weight: var(--fw-semibold);
+    line-height: var(--lg-section-title-lh);
+    letter-spacing: 0;
+    color: #333333;
+    margin-bottom: 28px;
+  }
+  .case-subtitle {
+    margin-top: 40px;
+    margin-bottom: 18px;
+    font-size: var(--lg-subtitle-size);
+    font-weight: var(--fw-semibold);
+    line-height: var(--lg-subtitle-lh);
+    letter-spacing: 0;
+    color: #333333;
+  }
+  .case-kicker {
+    margin-top: 18px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: var(--fw-semibold);
+    line-height: 38px;
+    color: #333333;
+  }
+
+  /* h3 上方阶段提示小字 */
+  .case-kicker--stage {
+    position: relative;
+    margin-top: var(--lg-kicker-stage-mt);
+    margin-bottom: 8px;
+    padding-top: var(--lg-kicker-stage-pt);
+    font-size: 16px;
+    font-weight: var(--fw-regular);
+    line-height: 24px;
+    letter-spacing: 0;
+    color: var(--lg-kicker-stage-color);
+  }
+  /* 阶段块 / 阶段结果区 上方分割线：与 .container 段落分割线同款
+     （同色同粗、贯穿内容宽度）。画在整块上而非 715px 的 kicker 上，
+     块是 .container 的直接子元素，left/right:0 恰好对齐内容区 = 与 .container 分割线一致 */
+  .case-stage-block,
+  .case-stage-result {
+    position: relative;
+  }
+  .case-stage-block::before,
+  .case-stage-result::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--lg-divider-h);
+    background: var(--lg-divider-color);
+  }
+
+  /* 阶段标题组合块：当前阶段 + h3 + 首图
+     用 3 个类提升特异性，确保压过后面的 .case-section .case-subtitle */
+  .case-section .case-stage-block .case-subtitle {
+    margin-top: var(--lg-stage-h3-mt);
+    margin-bottom: var(--lg-stage-h3-mb);
+  }
+  /* 阶段块内 h3 与首图之间的可选描述文字（一句话）：
+     h3→描述、描述→首图 两段间距分别由变量独立控制 */
+  .case-section .case-stage-block .case-subtitle:has(+ .case-text) {
+    margin-bottom: 0;
+  }
+  .case-section .case-stage-block .case-subtitle + .case-text {
+    margin-top: var(--lg-stage-text-mt);
+    margin-bottom: 0;
+  }
+  .case-section .case-stage-block .case-text + .case-figure {
+    margin-top: var(--lg-stage-text-mb);
+  }
+
+  /* ---------- 阶段引导块：面向对象/目标 + 关键设计点标题（Figma 2001-1767，图标+文字） ---------- */
+  .case-brief {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 72px;
+    margin: 0 0 28px;
+  }
+  /* 与上方首图拉开距离（原 kicker--stage 承担的间距） */
+  .case-stage-block > .case-brief:first-child { margin-top: 40px; }
+  .case-brief__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #333333;
+  }
+  .case-brief__item svg,
+  .case-brief__item img {
+    flex: none;
+    width: 20px;
+    height: 20px;
+    margin-top: 4px;
+    object-fit: contain;
+    color: #333333;
+  }
+  .case-brief__item b {
+    margin-right: 8px;
+    font-weight: var(--fw-semibold);
+    color: #333333;
+  }
+  .case-brief__item em {
+    font-style: normal;
+    font-weight: var(--fw-semibold);
+    color: #333333;
+  }
+  .case-finding {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 20px;
+    font-size: 18px;
+    line-height: 1.7;
+    letter-spacing: 0;
+    color: #333333;
+  }
+  .case-finding svg,
+  .case-finding img {
+    flex: none;
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    color: #333333;
+  }
+  .case-finding + .case-figure { margin-top: 24px; }
+  .case-stage-block .case-kicker--stage {
+    width: 715px;
+    margin-top: var(--lg-kicker-stage-mt);
+    margin-bottom: 0;
+    padding-top: var(--lg-kicker-stage-pt);
+    padding-bottom: 0;
+    box-sizing: border-box;
+  }
+
+  .case-text {
+    font-size: var(--lg-text-size);
+    font-weight: var(--fw-regular);
+    line-height: var(--lg-text-lh);
+    letter-spacing: 0.02em;
+    color: var(--lg-text-color);
+    margin-bottom: 14px;
+  }
+  .case-list {
+    margin: 12px 0 0;
+    display: grid;
+    gap: 10px;
+  }
+  .case-list li {
+    font-size: 20px;
+    line-height: 38px;
+    letter-spacing: 0.02em;
+    color: #333333;
+  }
+  .case-list li::before {
+    content: "•";
+    color: #333333;
+    margin-right: 8px;
+  }
+
+  /* 普通 case-list：换行时第二行与正文首行对齐（悬挂缩进） */
+  .project-detail-list.case-list:not(.case-core-list):not(.case-intro-list):not(.case-summary-list) li {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    align-items: start;
+  }
+  .project-detail-list.case-list:not(.case-core-list):not(.case-intro-list):not(.case-summary-list) li::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #333333;
+    margin: 16px auto 0;
+  }
+
+  .case-core-list { gap: 12px; }
+  .case-core-list li {
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    align-items: start;
+  }
+  .case-core-list li::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #333333;
+    margin: 16px auto 0;
+  }
+  .case-core-list__text { display: block; }
+
+  .case-intro .case-text { margin-bottom: 20px; }
+  .case-intro .case-text:nth-of-type(3) { margin-bottom: 12px; }
+  .case-intro-list { margin-top: 0; gap: 12px; }
+  .case-intro-list li {
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    align-items: start;
+  }
+  .case-intro-list li::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #333333;
+    margin: 16px auto 0;
+  }
+
+  .case-card {
+    margin-top: 22px;
+    padding: 28px 32px;
+    border-radius: 20px;
+    background: #FFFFFF;
+  }
+  .case-card__title {
+    font-size: 20px;
+    font-weight: var(--fw-semibold);
+    line-height: 38px;
+    color: #333333;
+    margin-bottom: 8px;
+  }
+
+  .case-challenge { margin-top: 24px; }
+  .case-challenge + .case-challenge { margin-top: 24px; }
+  .case-challenge__title {
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .case-challenge__index {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .case-challenge__row {
+    display: grid;
+    grid-template-columns: 38px 38px 1fr;
+    align-items: start;
+  }
+  .case-challenge__row + .case-challenge__row { margin-top: 12px; }
+  .case-challenge__dot {
+    grid-column: 2;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #333333;
+    display: block;
+    margin: 16px auto 0;
+  }
+  .case-challenge__row .project-detail-section__text.case-text {
+    grid-column: 3;
+    margin-bottom: 0;
+  }
+  .case-challenge + .project-detail-section__text.case-text { margin-top: 20px; }
+
+  &.case-page .project-detail-card > .project-detail-section__text.case-text {
+    margin-left: 0;
+    padding-left: 0;
+    text-indent: 0;
+  }
+
+  .case-figure {
+    margin-top: 24px;
+    border-radius: 0;
+    overflow: hidden;
+    background: #FFFFFF;
+  }
+  .case-figure img,
+  .case-figure video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .case-figure + .case-text { margin-top: 32px; }
+
+  /* Figma 2107-529：阶段内容块「标题 → 图片」间距固定 24px，图片直角 */
+  .case-section .case-subtitle {
+    margin-top: var(--lg-subtitle-mt);
+    margin-bottom: var(--lg-subtitle-mb);
+  }
+  .case-section .case-subtitle + .case-figure { margin-top: 24px; }
+
+  .case-tech .container > * + * { margin-top: 20px; }
+  .case-tech .container > .case-section__title { margin-bottom: 28px; }
+  .case-summary .container > * + * { margin-top: 20px; }
+  .case-summary .container > .case-section__title { margin-bottom: 28px; }
+  .case-summary-block > .case-text + .case-summary-list { margin-top: 12px; }
+  .case-summary-list { margin: 0; gap: 12px; }
+  .case-summary-list li {
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    align-items: start;
+  }
+  .case-summary-list li::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #333333;
+    margin: 16px auto 0;
+  }
+  .case-figure--tight { margin-top: 16px; }
+  .case-figure--dark { background: transparent; }
+  .case-figure figcaption {
+    padding: 14px 18px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #92A1B6;
+  }
+
+  /* ---------- 扩展布局 ---------- */
+  &.case-page--dense .case-meta .meta-item { color: #777777; }
+
+  .case-layout-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 76px;
+  }
+  .case-layout-split .case-section__title { margin-bottom: 28px; }
+
+  .case-layout-intro {
+    display: grid;
+    grid-template-columns: 2fr 3fr;   /* 正文 40% : 图片 60% */
+    column-gap: 48px;
+    align-items: start;
+  }
+  /* h2 单独一行统领整段（跨两列） */
+  .case-layout-intro__title {
+    grid-column: 1 / -1;
+    margin-bottom: 28px;
+  }
+  .case-layout-intro__figure {
+    width: 100%;                 /* 填满所在列（正文的等分列），随内容区收窄等比自适应 */
+    aspect-ratio: 788 / 510;     /* 以宽高比替代固定高度，保持原比例 */
+    height: auto;
+    overflow: hidden;
+  }
+  .case-layout-intro__figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Figma 2001-1987：左文右图内容块（文字窄 / 图片宽，顶部对齐） */
+  .case-split {
+    display: grid;
+    grid-template-columns: minmax(0, 380px) minmax(0, 1fr);
+    column-gap: 56px;
+    align-items: start;
+    margin: 40px 0;
+  }
+  .case-split__text { margin-top: 16px; }
+  .case-split__text .case-text { margin-bottom: 8px; }
+  .case-split__list { margin-top: 0; }
+  .case-split__figure { margin: 0; }
+  .case-split__figure img { width: 100%; max-width: 572px; height: auto; display: block; }
+
+  /* 紧凑阅读节奏 */
+  &.case-page--dense .case-subtitle {
+    margin-top: 38px;
+    margin-bottom: 12px;
+    font-size: var(--lg-subtitle-size);
+    font-weight: var(--fw-semibold);
+    line-height: var(--lg-subtitle-lh);
+    letter-spacing: 0;
+  }
+  &.case-page--dense .case-text { margin-bottom: 20px; }
+  &.case-page--dense .case-list { margin-top: 0; margin-bottom: 8px; gap: 12px; }
+  &.case-page--dense .case-figure { margin-top: 16px; }
+  &.case-page--dense .case-figure + .case-subtitle { margin-top: 36px; }
+  &.case-page--dense .case-tech .container > .case-section__title,
+  &.case-page--dense .case-summary .container > .case-section__title { margin-bottom: 28px; }
+  &.case-page--dense .case-tech .container > * + *,
+  &.case-page--dense .case-summary .container > * + * { margin-top: 12px; }
+  &.case-page--dense .case-tech .container > .case-text + .case-subtitle,
+  &.case-page--dense .case-summary .container > .case-text + .case-subtitle { margin-top: 34px; }
+
+  /* ---------- 阶段结果总结区（居中标题 + 副标题 + 数据气泡图，Figma 33:578） ---------- */
+  /* 本页 <body> 恒带 .case-page--dense，故 (0,4,0) 的
+     &.case-page--dense .case-tech .container>*+* 会把本块 margin-top 锁成 12px。
+     这里用 (0,5,0) 的更高特异性选择器夺回控制权，让 --lg-result-mt 真正可调 —— 
+     这才是「分割线上方间距」一直调不动的根因 */
+  &.case-page--dense .case-section .container .case-stage-result {
+    margin-top: var(--lg-result-mt);   /* 分割线上方间距（距上一块） */
+    padding-top: var(--lg-result-pt);  /* 分割线 → 标题 间距（独立可调） */
+    text-align: center;
+  }
+  .case-stage-result .case-result__title {
+    margin: 0;
+    font-size: var(--lg-subtitle-size);
+    font-weight: var(--fw-semibold);
+    line-height: 1.9;
+    letter-spacing: 0;
+    color: #333333;
+  }
+  .case-stage-result .case-result__desc {
+    margin: var(--lg-result-title-gap) 0 0;
+    font-size: var(--lg-text-size);
+    font-weight: var(--fw-regular);
+    line-height: 1.9;
+    letter-spacing: 0.02em;
+    color: var(--lg-text-color);
+  }
+  /* 3 类特异性，覆盖 .case-figure 默认上间距与白底 */
+  .case-section .case-stage-result .case-result__figure {
+    margin-top: var(--lg-result-fig-gap);
+    background: transparent;
+  }
+
+  /* 数据指标卡 */
+  .case-metrics {
+    margin-top: 28px;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+  .case-metrics__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .case-metrics__grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .case-metrics__item {
+    background: #FFFFFF;
+    border: 1px solid #E6ECF4;
+    border-radius: 8px;
+    padding: 12px 14px;
+    display: grid;
+    gap: 4px;
+  }
+  .case-metrics__item strong {
+    font-size: 24px;
+    line-height: 31px;
+    color: #1E2C42;
+  }
+  .case-metrics__item span {
+    font-size: 16px;
+    line-height: 24px;
+    color: #4F637F;
+  }
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 1024px) {
+  .project-ktv-page {
+    .case-hero { padding-block: 52px 40px; }
+    .case-cover-wrap { padding-bottom: 56px; }
+    .case-section { padding-block: 56px; }
+
+    &.case-page .project-detail-section.case-section > .container {
+      padding-top: 56px;
+      padding-bottom: 56px;
+    }
+    &.case-page .project-detail-section.case-section:first-of-type > .container { padding-top: 56px; }
+    &.case-page .project-detail-section.case-section:last-of-type > .container { padding-bottom: 56px; }
+
+    .case-title { font-size: 36px; line-height: 1.45; }
+    .case-section__title { font-size: 32px; line-height: 1.45; }
+    .case-subtitle { margin-top: 32px; font-size: 24px; line-height: 1.5; }
+    .case-kicker,
+    .case-text,
+    .case-list li,
+    .case-card__title,
+    .case-meta .meta-item { font-size: 18px; line-height: 1.85; }
+
+    .case-layout-split,
+    .case-layout-intro,
+    .case-split {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .case-layout-intro__figure {
+      width: 100%;
+      height: auto;
+      margin-top: 8px;
+    }
+    .case-layout-intro__figure img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+    .case-metrics__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+}
+
+@media (max-width: 768px) {
+  .project-ktv-page {
+    .nav-list { gap: var(--space-6); }
+    .nav-link,
+    .lang-switch { font-size: 15px; }
+    .case-hero { padding-block: 40px 24px; }
+    .case-crumb { font-size: 16px; line-height: 24px; margin-bottom: 20px; }
+    .case-title { font-size: 30px; line-height: 1.5; margin-bottom: 16px; }
+    .case-meta { gap: 14px; }
+    .case-meta .meta-item,
+    .case-text,
+    .case-list li,
+    .case-card__title,
+    .case-kicker { font-size: 16px; line-height: 1.8; }
+    .case-section { padding-block: 44px; }
+
+    &.case-page .project-detail-section.case-section > .container {
+      padding-top: 44px;
+      padding-bottom: 44px;
+    }
+    &.case-page .project-detail-section.case-section:first-of-type > .container { padding-top: 44px; }
+    &.case-page .project-detail-section.case-section:last-of-type > .container { padding-bottom: 44px; }
+
+    .case-section__title { font-size: 28px; line-height: 1.45; margin-bottom: 18px; }
+    .case-subtitle { margin-top: 24px; margin-bottom: 12px; font-size: 22px; line-height: 1.5; }
+    .case-card { padding: 20px; margin-top: 16px; }
+    .case-figure { margin-top: 16px; }
+    .case-figure + .case-text { margin-top: 24px; }
+    .case-figure figcaption { padding: 10px 12px; font-size: 14px; line-height: 1.6; }
+
+    &.case-page--dense .case-subtitle { margin-top: 28px; font-size: 22px; line-height: 1.5; }
+    &.case-page--dense .case-text,
+    &.case-page--dense .case-list li { font-size: 16px; line-height: 30px; }
+    .case-metrics__grid,
+    .case-metrics__grid--4 { grid-template-columns: 1fr; }
+  }
+}

@@ -1,0 +1,221 @@
+/* =========================================================
+   Pages — 页面级布局组合（基于组件库拼装三页）
+   ========================================================= */
+
+/* ---------- 站点头部 ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #ffffff;
+  border-bottom: 0.5px solid transparent;
+  transition: border-color var(--dur-base, 0.2s) var(--ease, ease);
+}
+/* 下滑后才显示分割线 */
+.site-header.is-scrolled {
+  border-bottom-color: transparent;
+}
+/* 吸顶下滑时导航栏高度缩小到 78px（默认 --header-h 不变） */
+.site-header.is-scrolled .navbar {
+  height: 78px;
+}
+
+/* ---------- Hero 头像（交由 components.css 统一控制） ---------- */
+
+/* ---------- 首页推荐卡片（Figma 第2模块布局） ---------- */
+.home-recommend {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  position: relative;
+}
+
+.home-recommend__card {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  padding: 68px 0 0;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 0.5px solid rgba(0, 0, 0, 0.05);
+  transition: transform var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease);
+}
+.home-recommend__card[data-href] { cursor: pointer; }
+
+.home-recommend__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.home-recommend__card--ai {
+  gap: 20px;
+}
+
+.home-recommend__card--logistic {
+  align-self: stretch;
+  justify-content: space-between;
+}
+
+.home-recommend__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 0 44px;
+  align-self: stretch;
+  width: 100%;
+  position: relative;
+}
+
+.home-recommend__card--logistic .home-recommend__content {
+  height: 135px;
+}
+
+.home-recommend__title {
+  align-self: stretch;
+  margin-top: -1px;
+  font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  color: #333;
+  font-size: 28px;
+  letter-spacing: 1.6px;
+  line-height: 44.8px;
+}
+
+.home-recommend__desc {
+  align-self: stretch;
+  font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  color: #666;
+  font-size: 20px;
+  letter-spacing: 1.4px;
+  line-height: normal;
+}
+
+.home-recommend__image {
+  position: relative;
+  width: 620px;
+  height: 400px;
+  aspect-ratio: 1.97;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---------- 经历页：金句区 ---------- */
+.exp-quote {
+  padding-block: 120px;
+  background: #FFFFFF;
+}
+
+/* ---------- 经历页：时间轴背景区 ---------- */
+.exp-timeline {
+  padding-block: 100px;
+  background: var(--color-bg-soft);
+}
+
+/* ---------- 经历页：时间轴（按 Figma 2001:121） ---------- */
+.timeline--exp .timeline__item { grid-template-columns: 200px 1fr; }
+
+/* ---------- 经历页：整页文本统一 5% 字间距 ---------- */
+.page-experience {
+  letter-spacing: 0.05em;
+}
+.page-experience .nav-link,
+.page-experience .lang-switch {
+  letter-spacing: 0.05em;
+}
+
+/* 时间轴内的小节（小圆点子标题 + 段落） */
+.timeline__group { margin-bottom: 32px; }
+.timeline__group:last-child { margin-bottom: 0; }
+.timeline__subhead {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 20px;
+  font-weight: var(--fw-medium);
+  line-height: 32px;
+  letter-spacing: 1px;
+  color: var(--color-text);
+  margin-bottom: 20px;
+}
+.timeline__p {
+  font-size: 20px;
+  font-weight: var(--fw-regular);
+  line-height: 32px;
+  letter-spacing: 1px;
+  color: #777777;
+  margin-bottom: 16px;
+}
+.timeline__p:last-child { margin-bottom: 0; }
+
+/* ---------- 项目页：图文行 ---------- */
+.section--project { padding-block: var(--space-25); }
+.meta-row svg { width: 16px; height: 16px; opacity: 0.9; }
+
+/* 项目列表：首卡整卡可点 */
+.article-card--entry {
+  cursor: pointer;
+  transition: transform var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease);
+}
+.article-card--entry:hover {
+  transform: translateY(-4px);
+}
+.article-card--entry:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 6px;
+}
+
+/* ---------- 项目列表页（projects.html）专属排版微调 ---------- */
+.page-projects .article-card__title { font-size: 28px; }
+.page-projects .article-card__desc {
+  font-size: 18px;
+  color: #333333;
+}
+/* 标签行：图标（currentColor）与文字统一浅色 #777777、18px */
+.page-projects .meta-row {
+  font-size: 18px;
+  color: #777777;
+}
+.page-projects .meta-row svg { width: 22px; height: 22px; }
+
+/* ---------- 项目详情页 ---------- */
+/* 已抽离为通用 Case Study 组件，样式见 components.css（case-*） */
+
+/* ---------- 社交图标 SVG ---------- */
+/* 按 Figma 设计稿尺寸：微信 22×18、邮箱 26×20（图标内部自带留白，
+   svg 画布 40，故渲染尺寸放大补偿，使黑色主体可见≈设计值） */
+.social__icon:nth-child(1) svg { width: 26px; height: 26px; } /* 微信：主体可见≈18px */
+.social__icon:nth-child(2) svg { width: 23px; height: 23px; } /* 邮箱：主体可见≈20px */
+
+/* ---------- 通用：区块上下留白匹配设计稿 ---------- */
+.section--hero { padding-block: var(--space-41) var(--space-30); }
+.section--recommend { padding-block: var(--space-18) var(--space-27); }
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 768px) {
+  .home-recommend {
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+  .home-recommend__card {
+    width: 100%;
+  }
+  .home-recommend__image {
+    width: 100%;
+    height: auto;
+  }
+  .home-recommend__title {
+    font-size: 24px;
+    line-height: 1.45;
+    letter-spacing: 0.8px;
+  }
+  .home-recommend__desc {
+    font-size: 18px;
+    letter-spacing: 0.4px;
+  }
+  .timeline--exp .timeline__item { grid-template-columns: 1fr; }
+}

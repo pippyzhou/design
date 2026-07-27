@@ -1,0 +1,511 @@
+/* =========================================================
+   Case Study 组件样式 — project-ai 专属
+   作用域：.project-ai-page（与 project-logistic 完全隔离）
+   ========================================================= */
+
+.project-ai-page {
+  letter-spacing: 0.02em;
+
+  .nav-link,
+  .lang-switch {
+    letter-spacing: 0;
+  }
+
+  /* ---------- Hero ---------- */
+  .case-hero {
+    padding-block: 60px 48px;
+  }
+  .case-crumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px;
+    line-height: 28px;
+    margin-bottom: 34px;
+  }
+  .case-crumb__muted { color: #CCCCCC; }
+  .case-crumb__current { color: #777777; }
+  .case-title {
+    max-width: 1280px;
+    font-size: 42px;
+    font-weight: var(--fw-semibold);
+    line-height: 58.8px;
+    letter-spacing: 0;
+    color: #333333;
+    margin-bottom: 24px;
+  }
+  .case-meta {
+    gap: 28px;
+    color: #92A1B6;
+  }
+  .case-meta .meta-item {
+    font-size: 20px;
+    line-height: 28px;
+    gap: 8px;
+    color: #777777;
+  }
+  .case-meta .meta-item svg {
+    width: 24px;
+    height: 24px;
+  }
+  .case-cover-wrap { padding-bottom: 72px; }
+  .case-cover { border-radius: 20px; overflow: hidden; }
+  .case-cover img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 1280 / 420;
+    object-fit: cover;
+  }
+
+  /* ---------- Section ---------- */
+  .case-section { padding-block: 72px; }
+
+  &.case-page .project-detail-section.case-section {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  &.case-page .project-detail-section.case-section > .container {
+    padding-top: 76px;
+    padding-bottom: 0; /* 段间距仅由下一段 padding-top 提供，避免 76+76 叠加 */
+  }
+  &.case-page .project-detail-section.case-section:first-of-type > .container {
+    padding-top: 72px;
+  }
+  &.case-page .project-detail-section.case-section:last-of-type > .container {
+    padding-bottom: 72px;
+  }
+
+  /* 段落之间的分割线已移除（仅 project-ai）；project-logistic 仍保留自己的分割线。 */
+
+  .case-section--soft { background: #FAFAFA; }
+  .case-section__title {
+    font-size: 36px;
+    font-weight: var(--fw-semibold);
+    line-height: 50.4px;
+    letter-spacing: 0;
+    color: #333333;
+    margin-bottom: 28px;
+  }
+  .case-subtitle {
+    margin-top: 40px;
+    margin-bottom: 18px;
+    font-size: 28px;
+    font-weight: var(--fw-semibold);
+    line-height: 40.6px;
+    letter-spacing: 0;
+    color: #333333;
+  }
+  .case-kicker {
+    margin-top: 18px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: var(--fw-semibold);
+    line-height: 38px;
+    color: #333333;
+  }
+
+  .case-text {
+    font-size: 20px;
+    font-weight: var(--fw-regular);
+    line-height: 38px;
+    letter-spacing: 0.02em;
+    color: #333333;
+    margin-bottom: 14px;
+  }
+  .case-list {
+    margin: 12px 0 0;
+    display: grid;
+    gap: 10px;
+  }
+  .case-list li {
+    font-size: 20px;
+    line-height: 38px;
+    letter-spacing: 0.02em;
+    color: #333333;
+  }
+  .case-list li::before {
+    content: "•";
+    color: #333333;
+    margin-right: 8px;
+  }
+
+  /* 普通 case-list：悬挂缩进 */
+  .project-detail-list.case-list:not(.case-core-list):not(.case-intro-list):not(.case-summary-list) li {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    align-items: start;
+  }
+  .project-detail-list.case-list:not(.case-core-list):not(.case-intro-list):not(.case-summary-list) li::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #333333;
+    margin: 16px auto 0;
+  }
+
+  .case-core-list { gap: 12px; }
+  .case-core-list li {
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    align-items: start;
+  }
+  .case-core-list li::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #333333;
+    margin: 16px auto 0;
+  }
+  .case-core-list__text { display: block; }
+
+  .case-intro .case-text { margin-bottom: 20px; }
+  .case-intro .case-text:nth-of-type(3) { margin-bottom: 12px; }
+  .case-intro-list { margin-top: 0; gap: 12px; }
+  .case-intro-list li {
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    align-items: start;
+  }
+  .case-intro-list li::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #333333;
+    margin: 16px auto 0;
+  }
+
+  .case-card {
+    margin-top: 22px;
+    padding: 28px 32px;
+    border-radius: 20px;
+    background: #FFFFFF;
+  }
+  .case-card__title {
+    font-size: 20px;
+    font-weight: var(--fw-semibold);
+    line-height: 38px;
+    color: #333333;
+    margin-bottom: 8px;
+  }
+
+  .case-challenge { margin-top: 24px; }
+  .case-challenge + .case-challenge { margin-top: 24px; }
+  .case-challenge__title {
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .case-challenge__index {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .case-challenge__row {
+    display: grid;
+    grid-template-columns: 38px 38px 1fr;
+    align-items: start;
+  }
+  .case-challenge__row + .case-challenge__row { margin-top: 12px; }
+  .case-challenge__dot {
+    grid-column: 2;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #333333;
+    display: block;
+    margin: 16px auto 0;
+  }
+  .case-challenge__row .project-detail-section__text.case-text {
+    grid-column: 3;
+    margin-bottom: 0;
+  }
+  .case-challenge + .project-detail-section__text.case-text { margin-top: 20px; }
+
+  &.case-page .project-detail-card > .project-detail-section__text.case-text {
+    margin-left: 0;
+    padding-left: 0;
+    text-indent: 0;
+  }
+
+  .case-figure {
+    margin-top: 24px;
+    border-radius: 0;
+    overflow: hidden;
+    background: #FFFFFF;
+  }
+  .case-figure img,
+  .case-figure video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .case-figure + .case-text { margin-top: 32px; }
+
+  .case-section .case-subtitle {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+  .case-section .case-subtitle + .case-figure { margin-top: 24px; }
+
+  .case-tech .container > * + * { margin-top: 20px; }
+  .case-tech .container > .case-section__title { margin-bottom: 28px; }
+  .case-summary .container > * + * { margin-top: 20px; }
+  .case-summary .container > .case-section__title { margin-bottom: 28px; }
+  .case-summary-block > .case-text + .case-summary-list { margin-top: 12px; }
+  .case-summary-list { margin: 0; gap: 12px; }
+  .case-summary-list li {
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    align-items: start;
+  }
+  .case-summary-list li::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #333333;
+    margin: 16px auto 0;
+  }
+  .case-figure--tight { margin-top: 16px; }
+  .case-figure--dark { background: transparent; }
+  .case-figure figcaption {
+    padding: 14px 18px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #92A1B6;
+  }
+
+  /* 数据指标卡 */
+  .case-metrics {
+    margin-top: 28px;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+  .case-metrics__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .case-metrics__grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .case-metrics__item {
+    background: #FFFFFF;
+    border: 1px solid #E6ECF4;
+    border-radius: 8px;
+    padding: 12px 14px;
+    display: grid;
+    gap: 4px;
+  }
+  .case-metrics__item strong {
+    font-size: 24px;
+    line-height: 31px;
+    color: #1E2C42;
+  }
+  .case-metrics__item span {
+    font-size: 16px;
+    line-height: 24px;
+    color: #4F637F;
+  }
+
+  /* ---------- project-ai 文字与内容宽度专属覆盖 ---------- */
+  /* 内容区自适应：沿用 base .container 宽度（与导航栏内容区同宽、左缘对齐），
+     右侧预留目录列（188px + 间距 --toc-gap），
+     使「正文 + 目录」整体宽度恰好等于导航栏内容区宽度，且随视口流动。 */
+  main .container {
+    padding-right: calc(var(--page-pad-x) + 188px + var(--toc-gap));
+  }
+  /* footer 与正文左右对齐：右侧同样预留目录列宽度 */
+  footer.container {
+    padding-right: calc(var(--page-pad-x) + 188px + var(--toc-gap));
+  }
+  main h3 {
+    font-size: 24px;
+    line-height: 1.5;
+  }
+  main .case-kicker,
+  main .case-card__title,
+  main .case-text,
+  main .case-list li,
+  main h4 {
+    font-size: 18px;
+    line-height: 1.8;
+  }
+  main strong { font-weight: var(--fw-semibold); }
+  main hightlight,
+  main highlight {
+    font-weight: inherit;
+    background-image: linear-gradient(to top, rgba(7, 193, 96, 0.12) 0 100%, transparent 100% 100%);
+  }
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 1024px) {
+  .project-ai-page {
+    .case-hero { padding-block: 52px 40px; }
+    .case-cover-wrap { padding-bottom: 56px; }
+    .case-section { padding-block: 56px; }
+
+    &.case-page .project-detail-section.case-section > .container {
+      padding-top: 56px;
+      padding-bottom: 0;
+    }
+    &.case-page .project-detail-section.case-section:first-of-type > .container { padding-top: 56px; }
+    &.case-page .project-detail-section.case-section:last-of-type > .container { padding-bottom: 56px; }
+
+    .case-title { font-size: 36px; line-height: 1.45; }
+    .case-section__title { font-size: 32px; line-height: 1.45; }
+    .case-subtitle { margin-top: 32px; font-size: 24px; line-height: 1.5; }
+    .case-kicker,
+    .case-text,
+    .case-list li,
+    .case-card__title,
+    .case-meta .meta-item { font-size: 18px; line-height: 1.85; }
+    .case-metrics__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+}
+
+@media (max-width: 768px) {
+  .project-ai-page {
+    .nav-list { gap: var(--space-6); }
+    .nav-link,
+    .lang-switch { font-size: 15px; }
+    .case-hero { padding-block: 40px 24px; }
+    .case-crumb { font-size: 16px; line-height: 24px; margin-bottom: 20px; }
+    .case-title { font-size: 30px; line-height: 1.5; margin-bottom: 16px; }
+    .case-meta { gap: 14px; }
+    .case-meta .meta-item,
+    .case-text,
+    .case-list li,
+    .case-card__title,
+    .case-kicker { font-size: 16px; line-height: 1.8; }
+    .case-section { padding-block: 44px; }
+
+    &.case-page .project-detail-section.case-section > .container {
+      padding-top: 44px;
+      padding-bottom: 0;
+    }
+    &.case-page .project-detail-section.case-section:first-of-type > .container { padding-top: 44px; }
+    &.case-page .project-detail-section.case-section:last-of-type > .container { padding-bottom: 44px; }
+
+    .case-section__title { font-size: 28px; line-height: 1.45; margin-bottom: 18px; }
+    .case-subtitle { margin-top: 24px; margin-bottom: 12px; font-size: 22px; line-height: 1.5; }
+    .case-card { padding: 20px; margin-top: 16px; }
+    .case-figure { margin-top: 16px; }
+    .case-figure + .case-text { margin-top: 24px; }
+    .case-figure figcaption { padding: 10px 12px; font-size: 14px; line-height: 1.6; }
+    .case-metrics__grid,
+    .case-metrics__grid--4 { grid-template-columns: 1fr; }
+  }
+}
+
+/* =========================================================
+   右侧悬浮目录（Table of Contents）— project-ai 专属
+   由 app.js 收集 h2.case-section__title（一级）/ h3.case-subtitle（二级）动态生成
+   ========================================================= */
+/* 目录列与正文间距变量（定义在 body.project-ai-page 上，供正文 padding 与目录共同使用） */
+.project-ai-page { --toc-gap: 40px; }
+.case-toc {
+  position: fixed;
+  top: var(--header-h);              /* 位于 header 下方（108px） */
+  /* 右缘对齐导航栏内容区右内缘：视口 < 1680 时为 page-pad-x，否则为居中容器边距 */
+  right: max(var(--page-pad-x), calc((100vw - var(--content-max)) / 2));
+  z-index: 40;                       /* 低于 header(50) */
+  display: flex;
+  flex-direction: column;
+  width: 188px;
+  height: auto;
+  padding: 60px 0 0;                 /* 仅上方 60px，其余为 0 */
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* 标题「目录」 */
+.case-toc__title {
+  height: 17px;
+  padding-left: 10px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+  color: #CCCCCC;
+}
+
+/* 目录项（未选中态为基准） */
+.case-toc__item {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 42px;
+  padding: 10px 0 10px 10px;         /* 一级 */
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  color: #777777;
+  text-decoration: none;
+  transition: color var(--dur-base) var(--ease);
+}
+.case-toc__item--sub {
+  padding-left: 20px;                /* 二级缩进 */
+}
+
+/* 背景轨道线：绝对定位贴行左侧（0.5×50px 渐变，opacity 0.15），仅激活态显示 */
+.case-toc__track {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.5px;
+  height: 50px;
+  background: linear-gradient(to bottom, transparent 0%, #000 19%, #000 81%, transparent 100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 竖线指示器：2×16px 实心矩形（外层高 26px 起垂直居中），仅激活态显示 */
+.case-toc__bar {
+  flex: 0 0 auto;
+  width: 2px;
+  height: 16px;
+  background: #333333;
+  display: none;
+}
+
+.case-toc__text { display: block; }
+
+/* 选中 / 激活态 */
+.case-toc__item.is-active {
+  height: 46px;
+  padding: 10px 0;                   /* padding-left 归零，间距由指示器提供 */
+  font-weight: 600;
+  line-height: 1.6;
+  color: #333333;
+}
+.case-toc__item.is-active .case-toc__bar {
+  display: block;
+  margin-right: 8px;                 /* 指示器与文字间距 8px */
+}
+.case-toc__item.is-active .case-toc__track {
+  opacity: 0.15;
+}
+/* 二级激活态：竖线仍贴行左侧（与一级竖线对齐），
+   竖线→文字间距在一级 8px 基础上 +10px = 18px，
+   使文字落在 20px 处，与未选中态 padding-left:20px 对齐，避免高亮时左右跳动 */
+.case-toc__item--sub.is-active .case-toc__bar {
+  margin-right: 18px;
+}
+
+/* 宽度不足以并排「正文 + 目录」时隐藏目录，正文恢复对称内边距、占满内容区宽度 */
+@media (max-width: 1200px) {
+  .case-toc { display: none; }
+  .project-ai-page main .container { padding-right: var(--page-pad-x); }
+  .project-ai-page footer.container { padding-right: var(--page-pad-x); }
+}
