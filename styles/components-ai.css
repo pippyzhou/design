@@ -414,7 +414,7 @@
   top: var(--header-h);              /* 位于 header 下方（108px） */
   /* 右缘对齐导航栏内容区右内缘：视口 < 1680 时为 page-pad-x，否则为居中容器边距 */
   right: max(var(--page-pad-x), calc((100vw - var(--content-max)) / 2));
-  z-index: 40;                       /* 低于 header(50) */
+  z-index: 30;                       /* 低于 header(50) 且低于通行码遮罩(40)，避免被遮罩漏出 */
   display: flex;
   flex-direction: column;
   width: 188px;
@@ -446,7 +446,7 @@
   height: 42px;
   padding: 10px 0 10px 10px;         /* 一级 */
   font-family: var(--font-sans);
-  font-size: 16px;
+  font-size: 18px;                   /* 未选中态字号（选中态继承此基准，两态同为 18px） */
   font-weight: 400;
   line-height: normal;
   color: #777777;

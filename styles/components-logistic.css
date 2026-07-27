@@ -29,8 +29,8 @@
   --lg-result-pt: 76px;            /* 结果区 分割线 → 标题 间距 */
   --lg-result-title-gap: 12px;     /* 结果区 标题 → 正文 间距 */
   --lg-result-fig-gap: 20px;       /* 结果区 正文 → 图片 间距 */
-  --lg-divider-color: #E6ECF4;     /* 分割线颜色 */
-  --lg-divider-h: 1px;             /* 分割线粗细 */
+  --lg-divider-color: rgba(0, 0, 0, 0.1);  /* 分割线颜色：10% #000000 */
+  --lg-divider-h: 0.5px;                    /* 分割线粗细 */
 
   letter-spacing: 0.02em;
 

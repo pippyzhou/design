@@ -126,7 +126,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 4px;
+  padding: 0px;
   background: none;
   border: 0;
   cursor: pointer;
@@ -136,7 +136,7 @@
 .nav-menu__home { display: block; width: 56px; height: 33px; flex: 0 0 auto; }
 .nav-menu__dropdown {
   position: absolute;
-  top: calc(100% + 4px); /* 导航栏底部下方 4px */
+  top: calc(100% - 4px); /* 导航栏底部下方 4px 基础上再上移 8px */
   left: 0;
   min-width: 128px;
   margin: 0;
