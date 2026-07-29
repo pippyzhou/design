@@ -9,6 +9,24 @@
   <link rel="stylesheet" href="styles/components.css?v=20260729-2300" />
   <link rel="stylesheet" href="styles/components-logistic.css?v=20260729-2340" />
   <link rel="stylesheet" href="styles/pages.css?v=20260729-2310" />
+  <!-- 本页专属：阶段1/2/3 区块顶部满屏宽渐变底（仅作用于 project-logistic.html，不影响其他页面与组件） -->
+  <style>
+    /* section 本身即满屏宽，::before 用 left/right:0 贯穿网页宽度；从区块顶部 2% 黑向下渐隐到透明，高 900px */
+    .project-logistic-page .case-fade-band { position: relative; }
+    .project-logistic-page .case-fade-band::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 900px;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0));
+      z-index: 0;
+      pointer-events: none;
+    }
+    /* 让区块内容浮在渐变底之上 */
+    .project-logistic-page .case-fade-band > .container { position: relative; z-index: 1; }
+  </style>
 </head>
 <body class="page-project-detail case-page case-page--dense project-logistic-page">
 
@@ -106,7 +124,7 @@
       </div>
     </section>
 
-    <section class="project-detail-section case-section case-tech">
+    <section class="project-detail-section case-section case-tech case-fade-band">
       <div class="container">
         <h2 class="project-detail-section__title case-section__title">阶段1：从“线下沟通”到“线上标准化协同”</h2>
         <p class="project-detail-section__text case-text">通过建设「在线寄件」能力与「物流商协同平台」，将商家与物流商的线下沟通、物流商运输至买家的全流程线上化。</p>
@@ -189,7 +207,7 @@
         </div>
     </section>
 
-    <section class="project-detail-section case-section">
+    <section class="project-detail-section case-section case-fade-band">
       <div class="container">
         <h2 class="project-detail-section__title case-section__title">阶段2：聚焦核心能力，从“供销一体”到“供销分离”</h2>
         <p class="project-detail-section__text case-text">随着电商业务发展，小店规模扩大后，商家体系逐渐由「供销一体」转为「供销分离」：</p>
@@ -274,7 +292,7 @@
         </div>
         </section>
 
-        <section class="project-detail-section case-section case-tech">
+        <section class="project-detail-section case-section case-tech case-fade-band">
             <div class="container">
               <h2 class="project-detail-section__title case-section__title">阶段3：商业模式升级，搭建货源市场</h2>
               <p class="project-detail-section__text case-text">将商家与供货商的线下对接转移到线上更标准化的服务，<strong>将供销分离模式从发货阶段更前移到商品上架销售阶段</strong>，放大价值，为生态赋能。</p>
