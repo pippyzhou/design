@@ -119,6 +119,78 @@
     window.addEventListener('scroll', onScroll, { passive: true });
   })();
 
+  // ============================================================
+  // 导航栏自适应：nav-list 放不下时，整体收成汉堡菜单（全站通用，零 HTML 改动）
+  // 汉堡结构由此处运行时克隆 nav-list 链接生成，复用 components.css 的 .nav-menu 下拉样式。
+  // ============================================================
+  (function initNavAutoCollapse() {
+    var header = document.querySelector('.site-header');
+    if (!header) return;
+    var navbar = header.querySelector('.navbar');
+    var navList = header.querySelector('.nav-list');
+    if (!navbar || !navList) return;
+    var langSwitch = navbar.querySelector('.lang-switch');
+
+    // 注入汉堡菜单（若尚未注入）
+    var auto = navbar.querySelector('.nav-menu--auto');
+    if (!auto) {
+      auto = document.createElement('div');
+      auto.className = 'nav-menu nav-menu--auto';
+      auto.setAttribute('tabindex', '0');
+      auto.setAttribute('role', 'button');
+      auto.setAttribute('aria-haspopup', 'true');
+      auto.setAttribute('aria-label', '打开菜单');
+
+      var icon = document.createElement('img');
+      icon.className = 'nav-menu__icon';
+      icon.src = 'assets/menu.png';
+      icon.alt = '菜单';
+      auto.appendChild(icon);
+
+      var home = document.createElement('img');
+      home.className = 'nav-menu__home';
+      home.src = 'assets/home.png';
+      home.alt = 'Polly';
+      auto.appendChild(home);
+
+      var dropdown = document.createElement('ul');
+      dropdown.className = 'nav-menu__dropdown';
+      Array.prototype.forEach.call(navList.querySelectorAll('a'), function (a) {
+        var li = document.createElement('li');
+        var na = document.createElement('a');
+        na.setAttribute('href', a.getAttribute('href') || '#');
+        na.textContent = (a.textContent || '').trim() || a.getAttribute('aria-label') || '';
+        li.appendChild(na);
+        dropdown.appendChild(li);
+      });
+      auto.appendChild(dropdown);
+
+      // 插到 nav-list 之后（收起时占据其原位置，位于导航栏左侧）
+      if (navList.nextSibling) navbar.insertBefore(auto, navList.nextSibling);
+      else navbar.appendChild(auto);
+    }
+
+    var GAP = 24;     // nav-list 与 lang-switch 之间的间距余量
+    var SAFETY = 24;  // 安全余量，避免刚好顶满就不收
+
+    function update() {
+      // 先解除折叠，测得 nav-list 完整内容宽度（同步 reflow，不会闪烁）
+      header.classList.remove('is-nav-collapsed');
+      var needed = navList.scrollWidth;
+      var langW = langSwitch ? langSwitch.getBoundingClientRect().width : 0;
+      var avail = navbar.clientWidth;
+      var fits = (needed + langW + GAP + SAFETY) <= avail;
+      if (!fits) header.classList.add('is-nav-collapsed');
+    }
+
+    update();
+    window.addEventListener('resize', update, { passive: true });
+    window.addEventListener('load', update);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(update);
+    }
+  })();
+
   // project-ai：右侧悬浮目录（TOC）——收集标题动态生成 + 平滑滚动 + 滚动高亮
   (function initCaseToc() {
     if (!document.body || !document.body.classList.contains('project-ai-page')) return;

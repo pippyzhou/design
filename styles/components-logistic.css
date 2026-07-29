@@ -218,6 +218,13 @@
     object-fit: contain;
     color: #333333;
   }
+  /* 图标右侧的「加粗标签 + 描述」统一放在同一内联流里：
+     标签紧跟图标不被拆行，描述作为普通文字自然换行，
+     换行文字对齐到标签起始处（悬挂缩进）。min-width:0 允许在窄屏正常换行而非逐字压缩。 */
+  .case-brief__text {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
   .case-brief__item b {
     margin-right: 8px;
     font-weight: var(--fw-semibold);
@@ -587,6 +594,20 @@
     .case-list li,
     .case-card__title,
     .case-meta .meta-item { font-size: 20px; line-height: 1.85; }
+
+    /* 窄屏：面向对象 / 目标 引导块改为纵向堆叠（图 2、图 3）。
+       base 是 flex-wrap + 可收缩 item，CJK 文字会被压成两窄列而非换行，
+       故这里强制单列，每个 item 占满整行；item 内部 图标+文字 的 flex 结构
+       天然产生悬挂缩进（换行文字对齐到文字起始处，即图 3 效果）。 */
+    .case-brief {
+      flex-direction: column;
+      flex-wrap: nowrap;
+      gap: 16px;
+    }
+    .case-brief__item {
+      flex: 0 0 auto;   /* 占满整行、按内容撑高，不再被压缩成窄列 */
+      width: 100%;
+    }
 
     .case-layout-split,
     .case-layout-intro,

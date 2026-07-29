@@ -57,16 +57,19 @@
 .nav-list {
   display: flex;
   align-items: center;
+  flex-wrap: nowrap;       /* 不换行：变窄时横向溢出，供 JS 检测触发折叠 */
   gap: var(--space-13);
   margin: 0;
   padding: 0;
   list-style: none;
 }
+.nav-list > li { flex: 0 0 auto; } /* 各项不被压缩，保持完整宽度 */
 .nav-link {
   position: relative;
   font-size: var(--fs-body);
   color: var(--color-text-secondary);
   padding-block: var(--space-2);
+  white-space: nowrap;     /* 单个 tab 文字不换行 */
   transition: color var(--dur-base) var(--ease);
 }
 .nav-link:hover { color: var(--color-text); }
@@ -119,6 +122,15 @@
 }
 .site-header.has-condensed.is-scrolled .nav-list { display: none; }
 .site-header.has-condensed.is-scrolled .nav-condensed { display: flex; }
+
+/* ============ 全站自适应：nav-list 放不下时自动收成汉堡菜单 ============
+   由 JS（app.js initNavAutoCollapse）动态检测宽度，放不下即给 header 加 .is-nav-collapsed。
+   注入的 .nav-menu--auto 复用 .nav-menu 的下拉样式，默认隐藏。 */
+.navbar .nav-menu--auto { display: none; }
+.site-header.is-nav-collapsed .nav-list { display: none; }
+.site-header.is-nav-collapsed .nav-menu--auto { display: inline-flex; }
+/* 详情页吸顶时已有 nav-condensed 汉堡（含标题），此时隐藏 auto 汉堡，避免出现两个 */
+.site-header.has-condensed.is-scrolled .nav-menu--auto { display: none; }
 
 /* 汉堡菜单 + Polly：整体作为下拉触发区（hover 与点击均展开） */
 .nav-menu {
@@ -619,9 +631,10 @@ body[data-protected]:not(.is-unlocked)::before {
 .pass-guard__input.is-error,
 .pass-guard__input.is-error:focus { border-color: #ff3451; }
 
-/* ---- 按钮：内边距 20/80 撑出约 205×67，近黑 #1A1A1A，圆角 12 ---- */
+/* ---- 按钮：固定宽 200px，内边距 16/20，近黑 #1A1A1A，圆角 12 ---- */
 .pass-guard__btn {
-  padding: 20px 80px;
+  width: 200px;
+  padding: 16px 20px;
   font-family: "PingFang SC", var(--font-sans);
   font-size: 20px;
   line-height: 24px;
