@@ -196,7 +196,7 @@
   .case-challenge__title {
     display: grid;
     grid-template-columns: 38px 1fr;
-    align-items: center;
+    align-items: start;
     margin-bottom: 12px;
   }
   .case-challenge__index {
@@ -339,7 +339,7 @@
   main hightlight,
   main highlight {
     font-weight: inherit;
-    background-image: linear-gradient(to top, rgba(7, 193, 96, 0.12) 0 100%, transparent 100% 100%);
+    background-image: linear-gradient(to top, rgba(139, 164, 199, 0.18) 0 100%, transparent 100% 100%);
   }
 }
 

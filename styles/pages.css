@@ -97,9 +97,9 @@
 
 .home-recommend__image {
   position: relative;
-  width: 620px;
-  height: 400px;
-  aspect-ratio: 1.97;
+  width: 100%;                 /* 随卡片宽度流动，避免固定 620px 在窄屏被裁切 */
+  height: auto;
+  aspect-ratio: 620 / 400;     /* 保持与设计稿相同比例（1920 下仍为 620×400） */
   object-fit: cover;
   display: block;
 }
@@ -177,10 +177,35 @@
 }
 /* 标签行：图标（currentColor）与文字统一浅色 #777777、18px */
 .page-projects .meta-row {
+  row-gap: 12px;               /* meta-item 换行时的行间距（行盒收紧后即为可见间距） */
   font-size: 18px;
+  line-height: 1;              /* 关键：收紧行盒，否则继承的 1.6 行高会让两行视觉间距远大于 12px */
   color: #777777;
 }
+.page-projects .meta-row .meta-item {
+  line-height: 1;              /* 同步收紧 item 行盒，使 row-gap 成为真正可见的行间距 */
+}
 .page-projects .meta-row svg { width: 22px; height: 22px; }
+
+/* 项目详情页的 meta-row：与 projects.html 的 .meta-row 保持一致的样式
+   （三类选择器权重高于各 components-*.css 里的 .case-meta 覆盖，故此处生效） */
+.meta-row.project-detail-meta.case-meta {
+  gap: var(--space-6);         /* 列间距 24px，同 base .meta-row */
+  row-gap: 12px;               /* 换行行间距 12px */
+  font-size: 18px;
+  line-height: normal;
+  color: #777777;
+}
+.meta-row.project-detail-meta.case-meta .meta-item {
+  gap: var(--space-2);         /* 8px，同 base .meta-item */
+  font-size: 18px;
+  line-height: normal;
+  color: #777777;
+}
+.meta-row.project-detail-meta.case-meta .meta-item svg {
+  width: 22px;
+  height: 22px;
+}
 
 /* ---------- 项目详情页 ---------- */
 /* 已抽离为通用 Case Study 组件，样式见 components.css（case-*） */
@@ -203,10 +228,15 @@
   }
   .home-recommend__card {
     width: 100%;
-  }
-  .home-recommend__image {
-    width: 100%;
+    flex: 0 0 auto;                 /* 关键：列布局下按内容撑高，否则 flex:1 1 0 会把高度压成 0 而塌陷 */
     height: auto;
+    padding-top: 40px;              /* 顶部内边距收窄，避免小屏留白过大 */
+  }
+  .home-recommend__content {
+    padding: 0 24px;                /* 左右内边距收窄，给正文更多可用宽度 */
+  }
+  .home-recommend__card--logistic .home-recommend__content {
+    height: auto;                  /* 重置桌面等高用的固定高度，消除堆叠后空白 */
   }
   .home-recommend__title {
     font-size: 24px;
