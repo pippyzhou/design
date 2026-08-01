@@ -235,7 +235,7 @@
     margin-top: 24px;
     border-radius: 0;
     overflow: hidden;
-    background: #FFFFFF;
+    background: transparent;   /* 去白底：透明 PNG 不再露出白色背景 */
   }
   .case-figure img,
   .case-figure video {
